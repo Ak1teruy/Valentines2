@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Message For You 🐾</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: radial-gradient(circle, #ffeef2 0%, #ffdee5 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            overflow: hidden;
+        }
+
+        .container {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 30px;
+            border: 8px solid #ffcad4;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            z-index: 10;
+            max-width: 450px;
+            width: 90%;
+            transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .main-img {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        h1 { color: #d63384; font-size: 1.8rem; margin-bottom: 20px; }
+
+        .buttons { display: flex; gap: 20px; justify-content: center; margin-top: 20px; }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 15px;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            font-family: 'Dancing Script', cursive;
+            font-weight: bold;
+        }
+
+        #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255, 77, 109, 0.4); }
+        #yesBtn:hover { transform: scale(1.1); background-color: #ff758f; }
+
+        #noBtn { background-color: #adb5bd; color: white; position: relative; }
+
+        /* Love Letter Styling */
+        #loveLetter {
+            display: none;
+            text-align: left;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.4rem;
+            line-height: 1.4;
+            color: #444;
+            animation: fadeIn 1.5s;
+        }
+
+        .signature {
+            margin-top: 15px;
+            text-align: right;
+            color: #d63384;
+            font-size: 1.6rem;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Floating Elements */
+        .floating {
+            position: absolute;
+            pointer-events: none;
+            z-index: 1;
+            animation: float Up 6s linear infinite;
+            opacity: 0.7;
+        }
+
+        @keyframes floatUp {
+            0% { transform: translateY(110vh) rotate(0deg); }
+            100% { transform: translateY(-10vh) rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container" id="mainCard">
+        <div id="askSection">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHJueGZ6bm93ZzR3eW94eHh4eHh4eHh4eHh4eHh4eHh4eHh4JnFvPTU/MDJ9IbM3vuzS0/giphy.gif" alt="Cute Cat" class="main-img">
+            <h1>Will you be my Valentine? ❤️</h1>
+            <div class="buttons">
+                <button id="yesBtn" onclick="openLetter()">Yes!</button>
+                <button id="noBtn" onmouseover="moveButton()">No</button>
+            </div>
+        </div>
+
+        <div id="loveLetter">
+            <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXp0ZXB3ZzR3eW94eHh4eHh4eHh4eHh4eHh4eHh4eHh4JnFvPTU/K1T6kz63P3VJK/giphy.gif" alt="Happy Cat" style="width: 100%; border-radius: 15px; margin-bottom: 15px;">
+            <h1>To My Munchkin,</h1>
+            <p>I wanted to take a moment to tell you how much you mean to me. I love every time being with you. You make every day brighter just by being in it. Thank you for being with me and for just being yourself!</p>
+            <p>I'm so lucky to have you. Happy Valentine's Xofia Day! 🐾</p>
+            <div class="signature">With love, <br> Aki</div>
+        </div>
+    </div>
+
+    <script>
+        // Move the No button
+        function moveButton() {
+            const btn = document.getElementById('noBtn');
+            const x = Math.random() * (window.innerWidth - btn.offsetWidth);
+            const y = Math.random() * (window.innerHeight - btn.offsetHeight);
+            btn.style.position = 'absolute';
+            btn.style.left = x + 'px';
+            btn.style.top = y + 'px';
+        }
+
+        // Show the letter
+        function openLetter() {
+            document.getElementById('askSection').style.display = 'none';
+            document.getElementById('loveLetter').style.display = 'block';
+            document.getElementById('mainCard').style.maxWidth = '500px';
+            
+            // Start extra celebration
+            setInterval(createFloatingItem, 150);
+        }
+
+        // Create floating hearts and cats
+        function createFloatingItem() {
+            const items = ['❤️', '💖', '✨', '🐱', '🐾', '😽'];
+            const item = document.createElement('div');
+            item.classList.add('floating');
+            item.innerHTML = items[Math.floor(Math.random() * items.length)];
+            item.style.left = Math.random() * 100 + 'vw';
+            item.style.fontSize = (Math.random() * 1.5 + 1) + 'rem';
+            item.style.animation = `floatUp ${Math.random() * 2 + 3}s linear forwards`;
+            document.body.appendChild(item);
+
+            setTimeout(() => { item.remove(); }, 5000);
+        }
+
+        // Start background floating items slowly at first
+        setInterval(createFloatingItem, 600);
+    </script>
+</body>
+</html>
