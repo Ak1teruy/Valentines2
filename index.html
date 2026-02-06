@@ -6,24 +6,48 @@
     <title>For Xofia 🐾</title>
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
     <style>
-        body { background: radial-gradient(circle, #ffeef2 0%, #ffdee5 100%); display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; font-family: 'Segoe UI', sans-serif; overflow: hidden; }
-        .container { text-align: center; background: white; padding: 40px; border-radius: 30px; border: 8px solid #ffcad4; box-shadow: 0 15px 35px rgba(0,0,0,0.1); z-index: 10; max-width: 500px; width: 90%; }
-        .main-img { width: 100%; max-width: 250px; border-radius: 20px; margin-bottom: 20px; }
+        body { 
+            background: radial-gradient(circle, #ffeef2 0%, #ffdee5 100%); 
+            display: flex; align-items: center; justify-content: center; 
+            min-height: 100vh; margin: 0; font-family: 'Segoe UI', sans-serif; 
+            overflow-x: hidden; 
+        }
+        .container { 
+            text-align: center; background: white; padding: 40px; 
+            border-radius: 30px; border: 8px solid #ffcad4; 
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1); z-index: 10; 
+            max-width: 500px; width: 90%; 
+        }
+        .main-img { width: 100%; max-width: 350px; border-radius: 20px; margin-bottom: 20px; }
         h1 { color: #d63384; font-family: 'Dancing Script', cursive; font-size: 2.2rem; margin-bottom: 20px; }
         .buttons { display: flex; gap: 20px; justify-content: center; margin-top: 20px; }
-        button { padding: 12px 25px; font-size: 1.4rem; border: none; border-radius: 15px; cursor: pointer; font-family: 'Dancing Script', cursive; font-weight: bold; transition: 0.3s; }
+        button { 
+            padding: 12px 25px; font-size: 1.4rem; border: none; 
+            border-radius: 15px; cursor: pointer; font-family: 'Dancing Script', cursive; 
+            font-weight: bold; transition: 0.3s;
+        }
         #yesBtn { background-color: #ff4d6d; color: white; box-shadow: 0 4px 15px rgba(255,77,109,0.3); }
         #noBtn { background-color: #adb5bd; color: white; position: relative; }
-        #loveLetter { display: none; text-align: left; font-family: 'Dancing Script', cursive; font-size: 1.5rem; line-height: 1.6; color: #444; }
+        #loveLetter { 
+            display: none; text-align: left; font-family: 'Dancing Script', cursive; 
+            font-size: 1.5rem; line-height: 1.6; color: #444; 
+        }
         .signature { margin-top: 25px; text-align: right; color: #d63384; font-size: 1.8rem; }
-        .floating { position: absolute; pointer-events: none; z-index: 1; animation: floatUp 5s linear forwards; opacity: 0.8; }
-        @keyframes floatUp { 0% { transform: translateY(110vh) rotate(0deg); } 100% { transform: translateY(-10vh) rotate(360deg); } }
+        .floating { 
+            position: absolute; pointer-events: none; z-index: 1; 
+            animation: floatUp 5s linear forwards; opacity: 0.8; 
+        }
+        @keyframes floatUp { 
+            0% { transform: translateY(110vh) rotate(0deg); } 
+            100% { transform: translateY(-10vh) rotate(360deg); } 
+        }
     </style>
 </head>
 <body>
+
     <div class="container" id="mainCard">
         <div id="askSection">
-            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cGF0aCBkPSJNMjAsNDAgQzIwLDIwIDUwLDIwIDUwLDQwIEM1MCwyMCA4MCwyMCA4MCw0MCBDODAsNjAgNTAsODAgNTAsODAgQzUwLDgwIDIwLDYwIDIwLDQwIFoiIGZpbGw9IiNmZjRkNmQiLz48L3N2Zz4=" alt="Heart" class="main-img">
+            <img src="https://i.pinimg.com/originals/f3/7a/6a/f37a6a75f80f156689d71c435534c561.jpg" alt="Bears Love" class="main-img">
             <h1>Will you be my Valentine? ❤️</h1>
             <div class="buttons">
                 <button id="yesBtn" onclick="openLetter()">Yes!</button>
@@ -32,9 +56,14 @@
         </div>
 
         <div id="loveLetter">
+            <img src="https://i.pinimg.com/736x/21/f7/a1/21f7a1f11f4d80a187a530f06f52e505.jpg" alt="Bears Drawing" style="width: 100%; border-radius: 15px; margin-bottom: 15px;">
+            
             <h1>To My Munchkin,</h1>
+            
             <p>Since you said yes, Make sure to get ready for the 14th so we can celebrate it together. I also, wanted to take a moment to tell you how much you mean to me. I am so thankfull to be with you and you make every day so much brighter just by being here with me. Thank you for all the support you give out. and for always being yourself!</p>
+            
             <p>I'm so lucky to have you. Happy Valentine's Xofia Day! 🐾</p>
+            
             <div class="signature">With love, <br> Aki</div>
         </div>
     </div>
@@ -48,13 +77,15 @@
             btn.style.left = x + 'px';
             btn.style.top = y + 'px';
         }
+
         function openLetter() {
             document.getElementById('askSection').style.display = 'none';
             document.getElementById('loveLetter').style.display = 'block';
             setInterval(createFloatingItem, 200);
         }
+
         function createFloatingItem() {
-            const items = ['❤️', '💖', '🐾'];
+            const items = ['❤️', '💖', '🐾', '✨'];
             const item = document.createElement('div');
             item.classList.add('floating');
             item.innerHTML = items[Math.floor(Math.random() * items.length)];
