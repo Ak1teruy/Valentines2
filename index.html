@@ -32,7 +32,7 @@
 
         .main-img {
             width: 100%;
-            max-width: 300px;
+            max-width: 320px;
             border-radius: 20px;
             margin-bottom: 20px;
         }
@@ -100,7 +100,7 @@
 
     <div class="container" id="mainCard">
         <div id="askSection">
-            <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHp6Ym5qZzR3eW94eHh4eHh4eHh4eHh4eHh4eHh4eHh4JnFvPTU/MDJ9IbM3vuzS0/giphy.gif" alt="Cat with Flower" class="main-img">
+            <img src="resources/bears-ask.png" alt="Milk Mocha Bears" class="main-img">
             <h1>Will you be my Valentine? ❤️</h1>
             <div class="buttons">
                 <button id="yesBtn" onclick="openLetter()">Yes!</button>
@@ -109,12 +109,11 @@
         </div>
 
         <div id="loveLetter">
-            <img src="https://media4.giphy.com/media/v1.Y2lkPTc5MGI3NjExNXp0ZXB3ZzR3eW94eHh4eHh4eHh4eHh4eHh4eHh4eHh4JnFvPTU/K1T6kz63P3VJK/giphy.gif" 
-                 alt="Love Hearts" style="width: 100%; border-radius: 15px; margin-bottom: 15px;">
+            <img src="resources/bears-love.png" alt="Bears Love" style="width: 100%; border-radius: 15px; margin-bottom: 15px;">
             
             <h1>To My Munchkin,</h1>
             
-            <p>Since you said yes, make sure to get ready for the 14th so we can celebrate it together. I also wanted to take a moment to tell you how much you mean to me. I am so thankful to be with you and you make every day so much brighter just by being here with me. Thank you for all the support you give out. and for always being yourself!</p>
+            <p>Since you said yes, Make sure to get ready for the 14th so we can celebrate it together. I also, wanted to take a moment to tell you how much you mean to me. I am so thankfull to be with you and you make every day so much brighter just by being here with me. Thank you for all the support you give out. and for always being yourself!</p>
             
             <p>I'm so lucky to have you. Happy Valentine's Xofia Day! 🐾</p>
             
@@ -140,7 +139,7 @@
         }
 
         function createFloatingItem() {
-            const items = ['❤️', '💖', '✨', '🐱', '🐾'];
+            const items = ['❤️', '💖', '✨', '🐾', '🐾'];
             const item = document.createElement('div');
             item.classList.add('floating');
             item.innerHTML = items[Math.floor(Math.random() * items.length)];
